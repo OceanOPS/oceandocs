@@ -18,15 +18,25 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = ({ open, setOpen, darkMode }
         color: darkMode ? "#03a9f4" : "#009af4",
       }}
     >
-      <Typography variant="h6" noWrap sx={{ display: open ? 'block' : 'none', paddingLeft: '10px', marginRight: '0px' }}>
-        Ocean
-        <Typography variant="h6" component="span" sx={{ fontWeight: '600' }}>
-          Views
+      {/* Logo + OceanDocs */}
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        {open && (
+          <img 
+            src="https://www.ocean-ops.org/static/images/oceanops/logos/oceanops-earth-sm.png" 
+            alt="OceanOPS Logo" 
+            width="30" 
+            height="30"
+            style={{ marginLeft: '7px', marginRight: '15px' }}
+          />
+        )}
+        <Typography variant="h6" noWrap sx={{ display: open ? 'block' : 'none' }}>
+          Ocean
+          <Typography variant="h6" component="span" sx={{ fontWeight: '600' }}>
+            Docs
+          </Typography>
         </Typography>
-      </Typography>
-      <IconButton onClick={() => setOpen(!open)}>
-        {open ? <ChevronLeft /> : <MenuIcon />}
-      </IconButton>
+      </Box>
+
     </Box>
   );
 };

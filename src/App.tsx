@@ -1,25 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CssBaseline, Box, createTheme, ThemeProvider } from '@mui/material';
 import Sidebar from './components/sidebar/Sidebar';
-import { SidebarOption } from './types/types';
-import Platforms from './components/catalogue/platforms/Platforms'; 
-import Cruises from './components/catalogue/cruises/CruiseTable';
-import Ships from './components/catalogue/ships/ShipTable';
-import Lines from './components/catalogue/lines/LineTable';
-import Contacts from './components/catalogue/contacts/ContactTable';
-import InteractiveMap from './components/dashboards/InteractiveMap';
-import Summary from './components/dashboards/Summary';
-import Implementation from './components/dashboards/Implementation';
-import Instrumentation from './components/dashboards/Instrumentation';
-import CruisePlanning from './components/dashboards/CruisePlanning';
-import CreateDashboard from './components/dashboards/CreateDashboard';
-import CreateReport from './components/reports/CreateReport';
-import MonthlyAnalysis from './components/reports/MonthlyAnalysis';
-import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import OceanMeta from './components/pages/metadata/OceanMeta';
+import Ontology from './components/pages/metadata/Ontology';
+import Dictionary from './components/pages/metadata/Dictionary';
+import CodeTables from './components/pages/metadata/CodeTables';
+import Passports from './components/pages/metadata/Passports';
+import OceanJSON from './components/pages/metadata/OceanJson';
+import OceanAPI from './components/pages/applications/OceanAPI';
+import OceanKPIs from './components/pages/indicators/OceanKPIs';
+import Submit from './components/pages/tutorials/submit/Submit';
+import SubmitPlatforms from './components/pages/tutorials/submit/SubmitPlatforms';
+import SubmitCruises from './components/pages/tutorials/submit/SubmitCruises';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<SidebarOption>('Home');
+  const [darkMode, setDarkMode] = useState(true);
+  const [selectedOption, setSelectedOption] = useState<string>('OceanMeta'); // Default page
 
   const theme = createTheme({
     palette: {
@@ -27,51 +24,43 @@ function App() {
     },
   });
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ display: 'flex', height: '100vh', width: '100vw' }}>
-        <Sidebar 
-          darkMode={darkMode} 
-          toggleDarkMode={toggleDarkMode} 
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-        />
-        <Box 
-          component="main" 
-          sx={{ 
-            flexGrow: 1, 
-            p: 0, 
-            display: 'flex', 
-            flexDirection: 'column',
-            width: 'calc(100% - [sidebar-width])'
-          }}
-        >
-          <Box sx={{ width: '100%', flexGrow: 1 }}> 
-            {selectedOption === 'Platforms' && <Platforms />}
-            {selectedOption === 'Cruises' && <Cruises />}
-            {selectedOption === 'Ships' && <Ships />}
-            {selectedOption === 'Lines' && <Lines />}
-            {selectedOption === 'Contacts' && <Contacts />}
-            {/* Keep InteractiveMap loaded, just hide it when not active */}
-            <Box sx={{ display: selectedOption === 'Map' ? 'block' : 'none' }}>
-              <InteractiveMap />
-            </Box>
-            {selectedOption === 'Summary' && <Summary />}
-            {selectedOption === 'Implementation' && <Implementation />}
-            {selectedOption === 'Instrumentation' && <Instrumentation />}
-            {selectedOption === 'Cruise Planning' && <CruisePlanning />}
-            {selectedOption === 'Create Dashboard' && <CreateDashboard />}
-            {selectedOption === 'Create Report' && <CreateReport />}
-            {selectedOption === 'Monthly Analysis' && <MonthlyAnalysis />}
-            {selectedOption === 'Home' && <Home />}
+      <Router>
+        <Box sx={{ display: 'flex', width: '100vw' }}>
+          <Sidebar 
+            darkMode={darkMode} 
+            toggleDarkMode={() => setDarkMode(!darkMode)} 
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+          />
+          <Box 
+            component="main" 
+            sx={{ 
+              flexGrow: 1, 
+              p: 3, 
+              display: 'flex', 
+              flexDirection: 'column',
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<OceanMeta darkMode={darkMode} setSelectedOption={setSelectedOption} />} />
+              <Route path="/ontology" element={<Ontology darkMode={darkMode} />} />
+              <Route path="/dictionary" element={<Dictionary darkMode={darkMode} />} />
+              <Route path="/code-tables" element={<CodeTables darkMode={darkMode} />} />
+              <Route path="/passports" element={<Passports darkMode={darkMode} />} />
+              <Route path="/oceanjson" element={<OceanJSON darkMode={darkMode} />} />
+              <Route path="/oceanapi" element={<OceanAPI darkMode={darkMode} />} />
+              <Route path="/kpis" element={<OceanKPIs darkMode={darkMode} />} />
+              <Route path="/submit" element={<Submit darkMode={darkMode} />} />
+              <Route path="/submit-platforms" element={<SubmitPlatforms darkMode={darkMode} />} />
+              <Route path="/submit-cruises" element={<SubmitCruises darkMode={darkMode} />} />
+              <Route path="*" element={<OceanMeta darkMode={darkMode} setSelectedOption={setSelectedOption} />} /> {/* Default fallback */}
+            </Routes>
           </Box>
         </Box>
-      </Box>
+      </Router>
     </ThemeProvider>
   );
 }
