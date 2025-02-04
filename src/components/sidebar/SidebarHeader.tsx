@@ -1,5 +1,4 @@
-import { IconButton, Typography, Box } from '@mui/material';
-import { ChevronLeft, Menu as MenuIcon } from '@mui/icons-material';
+import { Typography, Box } from '@mui/material';
 
 interface SidebarHeaderProps {
   open: boolean;
@@ -7,7 +6,7 @@ interface SidebarHeaderProps {
   darkMode: boolean;
 }
 
-const SidebarHeader: React.FC<SidebarHeaderProps> = ({ open, setOpen, darkMode }) => {
+const SidebarHeader: React.FC<SidebarHeaderProps> = ({ open, darkMode }) => {
   return (
     <Box
       sx={{

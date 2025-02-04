@@ -37,7 +37,7 @@ const SidebarList: React.FC<SidebarListProps> = ({ category, options, selectedOp
       )}
 
       <List sx={{ padding: 0 }}>
-        {options.map(({ label, subOptions, path }) => (
+        {options.map(({ label, subOptions }) => (
           <Box key={label}>
             {/* Main Option */}
             <ListItem

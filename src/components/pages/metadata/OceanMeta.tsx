@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Box, Typography, Paper, Grid, Container } from '@mui/material';
 import { PageProps } from '../PageProps';
 import { motion, useAnimation } from 'framer-motion';
@@ -8,7 +7,7 @@ interface OceanMetaProps extends PageProps {
   setSelectedOption: (option: string) => void; // Needed to switch pages
 }
 
-const OceanMeta: React.FC<OceanMetaProps> = ({ darkMode, setSelectedOption }) => {
+const OceanMeta: React.FC<OceanMetaProps> = ({ darkMode }) => {
   const controls = useAnimation();
 
   return (

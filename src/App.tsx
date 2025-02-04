@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CssBaseline, Box, createTheme, ThemeProvider } from '@mui/material';
 import Sidebar from './components/sidebar/Sidebar';
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OceanMeta from './components/pages/metadata/OceanMeta';
 import Ontology from './components/pages/metadata/Ontology';
 import Dictionary from './components/pages/metadata/Dictionary';
