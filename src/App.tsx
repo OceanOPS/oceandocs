@@ -18,6 +18,7 @@ import SubmitCruises from './components/pages/tutorials/submit/SubmitCruises';
 function AppContent({ darkMode, setSelectedOption }: { darkMode: boolean; setSelectedOption: (option: string) => void }) {
   const location = useLocation();
   const isOceanMetaPage = location.pathname === '/';
+  const isPassportsPage = location.pathname === '/passports';
 
   return (
     <Box
@@ -27,7 +28,7 @@ function AppContent({ darkMode, setSelectedOption }: { darkMode: boolean; setSel
         p: 3,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: isOceanMetaPage ? 'center' : 'flex-start',
+        alignItems: isOceanMetaPage || isPassportsPage ? 'center' : 'flex-start',
         justifyContent: isOceanMetaPage ? 'center' : 'flex-start',
         height: '100vh',
         overflowY: 'auto',
