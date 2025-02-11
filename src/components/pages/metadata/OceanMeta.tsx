@@ -114,8 +114,8 @@ const OceanMeta: React.FC<OceanMetaProps> = ({ darkMode }) => {
             <Grid container spacing={3} justifyContent="center">
               {[
                 { icon: <IntegrationInstructions sx={{ color: "#FF6F61" }} fontSize="large" />, text: "Standardized Metadata Ontology and Definitions" },
-                { icon: <Sync sx={{ color: "#4CAF50" }} fontSize="large" />, text: "Interoperability between GOOS applications" },
-                { icon: <FactCheck sx={{ color: "#FFD700" }} fontSize="large" />, text: "A standardized schema: OceanJSON" },
+                { icon: <Sync sx={{ color: "#b5fb63" }} fontSize="large" />, text: "Interoperability between GOOS applications" },
+                { icon: <FactCheck sx={{ color: "#ffde79" }} fontSize="large" />, text: "A standardized schema: OceanJSON" },
                 { icon: <AutoAwesome sx={{ color: "#2196F3" }} fontSize="large" />, text: "Automated Validation & Quality Control" },
               ].map(({ icon, text }, index) => (
                 <Grid item xs={12} sm={6} md={3} key={index}>

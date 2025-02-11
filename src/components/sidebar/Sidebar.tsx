@@ -22,7 +22,8 @@ const sidebarSections = [
       { label: "Dictionary", path: "/dictionary" },
       { label: "Code Tables", path: "/code-tables" },
       { label: "Passports", path: "/passports" },
-      { label: "OceanJSON", path: "/oceanjson" }
+      { label: "OceanJSON", path: "/oceanjson" },
+      { label: "OceanCSV", path: "/oceancsv" }
     ]
   },
   {
