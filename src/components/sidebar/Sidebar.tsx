@@ -34,16 +34,10 @@ const sidebarSections = [
     ]
   },
   {
-    category: "INDICATORS",
-    options: [{ label: "KPIs", path: "/kpis" }]
-  },
-  {
-    category: "TUTORIALS",
+    category: "GUIDES",
     options: [
-      { label: "How to Submit", path: "/submit", subOptions: [
-        { label: "Platforms", path: "/submit-platforms" },
-        { label: "Cruises", path: "/submit-cruises" }
-      ] }
+		{ label: "HelpDesk", path: "/helpdesk" },
+      	{ label: "How to Submit", path: "/submit-platforms"}
     ]
   }
 ];

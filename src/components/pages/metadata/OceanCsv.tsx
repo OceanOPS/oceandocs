@@ -31,7 +31,7 @@ const OceanCsv: React.FC<PageProps> = ({ darkMode }) => {
 
   return (
     <Box sx={{ padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h3" sx={{ fontWeight: 500, color: darkMode ? "#03a9f4" : "#009af4", marginBottom: 2 }}>
+      <Typography variant="h3" sx={{ fontWeight: 500, color: darkMode ? "#ffa36a" : "#ffa36a", marginBottom: 2 }}>
         Ocean<strong>CSV</strong>
       </Typography>
 
@@ -69,7 +69,7 @@ const OceanCsv: React.FC<PageProps> = ({ darkMode }) => {
                 >
                   <TableCell sx={{color: darkMode ? '#ffa36a' : '#ffa36a', fontSize: '15px', paddingBottom: 0, paddingTop: 0 }}><strong>{row.headerCode}</strong></TableCell>
                   <TableCell sx={{paddingBottom: 0, paddingTop: 0 }}>{row.fieldTypeCode}</TableCell>
-                  <TableCell sx={{paddingBottom: 0, paddingTop: 0 }}>{row.propertyPath}</TableCell>
+                  <TableCell sx={{paddingBottom: 0, paddingTop: 0, fontSize: '15px', fontFamily: 'Montserrat' }}>{row.propertyPath}</TableCell>
 				  <TableCell sx={{paddingBottom: 0, paddingTop: 0 }}>
 					<Box
 					sx={{

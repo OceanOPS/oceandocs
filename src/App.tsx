@@ -10,7 +10,8 @@ import Passports from './components/pages/metadata/Passports';
 import OceanJSON from './components/pages/metadata/OceanJson';
 import OceanCsv from './components/pages/metadata/OceanCsv';
 import OceanAPI from './components/pages/applications/OceanAPI';
-import OceanKPIs from './components/pages/indicators/OceanKPIs';
+import RequestIds from './components/pages/applications/RequestIds';
+import Helpdesk from './components/pages/indicators/Helpdesk';
 import Submit from './components/pages/tutorials/submit/Submit';
 import SubmitPlatforms from './components/pages/tutorials/submit/SubmitPlatforms';
 import SubmitCruises from './components/pages/tutorials/submit/SubmitCruises';
@@ -19,6 +20,10 @@ function AppContent({ darkMode, setSelectedOption }: { darkMode: boolean; setSel
   const location = useLocation();
   const isOceanMetaPage = location.pathname === '/';
   const isPassportsPage = location.pathname === '/passports';
+  const isOceanApiPage = location.pathname === '/oceanapi';
+  const isRequestIdsPage = location.pathname === '/request-ids';
+  const isHelpdeskPage = location.pathname === '/helpdesk';
+  const isOceanJsonPage = location.pathname === '/oceanjson';
 
   return (
     <Box
@@ -28,7 +33,7 @@ function AppContent({ darkMode, setSelectedOption }: { darkMode: boolean; setSel
         p: 3,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: isOceanMetaPage || isPassportsPage ? 'center' : 'flex-start',
+        alignItems: isOceanMetaPage || isPassportsPage || isOceanApiPage || isRequestIdsPage || isHelpdeskPage || isOceanJsonPage ? 'center' : 'flex-start',
         justifyContent: isOceanMetaPage ? 'center' : 'flex-start',
         height: '100vh',
         overflowY: 'auto',
@@ -43,10 +48,11 @@ function AppContent({ darkMode, setSelectedOption }: { darkMode: boolean; setSel
         <Route path="/oceanjson" element={<OceanJSON darkMode={darkMode} />} />
         <Route path="/oceancsv" element={<OceanCsv darkMode={darkMode} />} />
         <Route path="/oceanapi" element={<OceanAPI darkMode={darkMode} />} />
-        <Route path="/kpis" element={<OceanKPIs darkMode={darkMode} />} />
+        <Route path="/helpdesk" element={<Helpdesk darkMode={darkMode} />} />
         <Route path="/submit" element={<Submit darkMode={darkMode} />} />
         <Route path="/submit-platforms" element={<SubmitPlatforms darkMode={darkMode} />} />
         <Route path="/submit-cruises" element={<SubmitCruises darkMode={darkMode} />} />
+        <Route path="/request-ids" element={<RequestIds darkMode={darkMode} />} />
         <Route path="*" element={<OceanMeta darkMode={darkMode} setSelectedOption={setSelectedOption} />} />
       </Routes>
     </Box>

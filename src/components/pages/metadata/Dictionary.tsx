@@ -37,7 +37,7 @@ const Dictionary: React.FC<PageProps> = ({ darkMode }) => {
       <TableContainer component={Paper} sx={{ marginTop: 4 }}>
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow  sx={{ backgroundColor: darkMode ? '#438cb0' : '#aae3ff', color: darkMode ? '#ffffff' : '#000000de' }}>
               <TableCell><strong>Code</strong></TableCell>
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Type</strong></TableCell>
