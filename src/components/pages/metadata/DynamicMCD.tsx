@@ -52,7 +52,7 @@ export default function DynamicMCD({ darkMode }: { darkMode: boolean }) {
   const [directConnections, setDirectConnections] = useState<string[]>([]);
   const [secondDegreeConnections, setSecondDegreeConnections] = useState<string[]>([]);
 
-  const handleNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+  const handleNodeClick = useCallback((_event: React.MouseEvent, node: Node) => {
     setSelectedNodeId(node.id);
 
     const directlyConnectedEdges = edges.filter(edge => edge.source === node.id || edge.target === node.id);

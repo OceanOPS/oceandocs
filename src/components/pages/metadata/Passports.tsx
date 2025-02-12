@@ -1,7 +1,6 @@
 import { Box, Typography, Grid } from '@mui/material';
 import { PageProps } from '../PageProps';
 
-const BASE_PATH = '/docs';
 
 const Passports: React.FC<PageProps> = ({ darkMode }) => {
   return (

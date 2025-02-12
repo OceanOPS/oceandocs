@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { PageProps } from '../PageProps';
 
 const RequestIds: React.FC<PageProps> = ({ darkMode }) => {

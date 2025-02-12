@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Link } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import { PageProps } from '../PageProps';
 import GitHubIcon from '@mui/icons-material/GitHub';
 

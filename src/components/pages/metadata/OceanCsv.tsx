@@ -16,7 +16,6 @@ const BASE_PATH = '/docs';
 const OceanCsv: React.FC<PageProps> = ({ darkMode }) => {
   const [csvData, setCsvData] = useState<CSVHeader[]>([]);
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
-  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
   useEffect(() => {
     fetch(`${BASE_PATH}/data/oceanCsv.json`)
